@@ -1,11 +1,9 @@
-
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
 #include <time.h>
  
 using namespace std;
- 
 void inicio();
 void primer_error();
 void segundo_error();
@@ -15,7 +13,7 @@ void quinto_error();
 void jugar();
 void rellenar(string n);
 void intentos(int intento);
- 
+int pista(int n);
 
 int main(){
 	int opcion;
@@ -30,6 +28,7 @@ int main(){
 			case 2: cout << "HASTA LUEGO" << endl; break;
 			default: cout << "OPCION INCORRECTA, Intente de nuevo" << endl;
 		}
+	
 	}while(opcion!=2);
 	system("pause");
 	return 0;
@@ -110,12 +109,13 @@ void quinto_error()
 void jugar()
 {
 	int aleatorio;
-	string a="ARBOL", b="PIZZAA", c="MONOPATIN";
-   	aleatorio=rand()%3+1;
+	string a="ARBOL", b="VENTANA", c="MONOPATIN", d="PINGUINO";
+   	aleatorio=rand()%4+1;
 	switch(aleatorio){
-		case 1:cout<<"\n\nPista: Bebe agua con los pies.\n\n", rellenar(a); break;
-		case 2:cout<<"\nPista: Cuadro de envase, Base Redonda, Porcion Triangular.\n\n", rellenar(b); break;
-		case 3:cout<<"\nPista: Soy mono pero no estoy en la selva tambien soy patin pero no pato.\n\n", rellenar(c); break;	
+		case 1:cout<<"",  rellenar(a); break;
+		case 2:cout<<"", rellenar(b); break;
+		case 3:cout<<"", rellenar(c); break;
+		case 4:cout<<"", rellenar(d); break;	
 	}	
 }
  
@@ -124,8 +124,7 @@ void rellenar(string n)
 	int contador=0, aux=0, aux2, MAX=n.length(),aleatorio;
 	char letra, contenedor[MAX];
 	for(int i=0;i<MAX;i++){
-		contenedor[i]='_';
-		
+		contenedor[i]='_';	
 	}
 	inicio();
 	cout << endl;
@@ -133,13 +132,10 @@ void rellenar(string n)
 	cout << endl;
 	while(contador<5){
 		aux2=0;
-		
-		
+		pista(MAX);
 		for(int j=0;j<MAX;j++){
 		cout << contenedor[j] << " ";
 		}
-		
-		
 		
 		cin >> letra;
 		for(int k=0;k<MAX;k++){
@@ -173,3 +169,15 @@ void intentos(int intento)
 		case 5: quinto_error(); break;
 	}
 }
+
+int pista(int n){
+	
+switch(n){
+		case 5:cout<<"\n\nPista: Bebe agua con los pies.\n\n"; break;
+		case 7:cout<<"\nPista: Es venta y no se vende, es Ana, pero no es gente.\n\n"; break;
+		case 8:cout<<"\nPista: Viste chaleco blanco y negro, es un ave pero no vuela, pero si nada.\n\n"; break;
+		case 9:cout<<"\nPista: Soy mono pero no estoy en la selva tambien soy patin pero no pato.\n\n"; break;	
+}
+}
+
+
